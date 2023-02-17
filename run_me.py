@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Initialize the two cameras
 cap1 = cv2.VideoCapture(0)
-cap2 = cap1
+cap2 = cv2.VideoCapture("https://FireFighterPortal:firefighter@192.168.30.3/api/holographic/stream/live_high.mp4?holo=true&pv=true&mic=true&loopback=true")
 
 # Route for camera 1
 @app.route("/cam1")
