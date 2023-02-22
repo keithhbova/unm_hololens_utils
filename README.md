@@ -1,7 +1,4 @@
-# HoloFenk
-
-Source code for the UNM HoloFenk firefighting project. 
-
+# UNM Firefighting Utils
 
 ## Installation:
 
@@ -14,9 +11,29 @@ pip install flask
 pip install onnxruntime
 ```
 
-## Contents:
+## Flir Capture:
 
+<img src="/assets/Readme/flir_capture_image.png" alt="Alt text" title="Optional title">
 
+### Overview:
+
+The purpose of this code is to easily capture thermal data from the FLIR C5 for data collection.
+
+## Image Filter:
+
+<img src="/assets/Readme/image_filter.png" alt="Alt text" title="Optional title">
+
+### Overview:
+
+The purpose of this code is to speed up the process of hand-filtering data collected from the flir_capture program.
+
+## Yolo Dataset Viewer:
+
+<img src="/assets/Readme/yolo_dataset_viewer.png" alt="Alt text" title="Optional title">
+
+### Overview:
+
+The purpose of this code is to view exports from label studio, to ensure consistent labeling across team members.
 
 ## ONNX YOLO Models:
 
