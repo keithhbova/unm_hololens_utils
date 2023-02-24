@@ -1,0 +1,35 @@
+FROM ubuntu:latest
+
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    git \
+    libboost-program-options-dev \
+    libboost-system-dev \
+    libboost-filesystem-dev \
+    libboost-mpi-dev \
+    libboost-serialization-dev \
+    libopenmpi-dev \
+    python3 \
+    python3-pip
+
+RUN git clone https://github.com/Fviramontes8/mpi_label_histo.git
+
+RUN cd /mpi_label_histo
+
+WORKDIR /mpi_label_histo
+
+RUN pip install -r requirements.txt
+RUN pip install flask
+
+
+RUN mkdir build && cd build && cmake .. && make -j4
+
+COPY labels labels
+
+COPY flask_visualizer.py flask_visualizer.py
+
+RUN mpirun --oversubscribe --allow-run-as-root -np 4 ./build/app/mpi_label_histo -p labels -s 4 -o label_histo.txt
+
+CMD ["python3", "flask_visualizer.py", "--file-path","label_histo.txt"]
