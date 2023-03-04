@@ -27,9 +27,9 @@ def cam2():
 @app.route("/frame/<int:camera_num>")
 def frame(camera_num):
     if camera_num == 1:
-        cap = cv2.VideoCapture(0)
+        cap = cap1
     elif camera_num == 2:
-        cap = cv2.VideoCapture(0)
+        cap = cap2
     else:
         return "Invalid camera number"
 
@@ -50,10 +50,6 @@ def home():
 
     # Return the template with both camera's dimensions
     return render_template("index.html", width1=width1, height1=height1, width2=width2, height2=height2)
-
-
-
-
 
 @app.route('/assets/<path:path>')
 def send_asset(path):
