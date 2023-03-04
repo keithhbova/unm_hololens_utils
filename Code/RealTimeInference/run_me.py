@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, Response
 import cv2
 import base64
 
@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Initialize the two cameras
 cap1 = cv2.VideoCapture(0)
-cap2 = cv2.VideoCapture("https://FireFighterPortal:firefighter@192.168.30.3/api/holographic/stream/live_high.mp4?holo=true&pv=true&mic=true&loopback=true")
+cap2 = cv2.VideoCapture(0)
 
 # Route for camera 1
 @app.route("/cam1")
@@ -49,7 +49,11 @@ def home():
     height2, width2, _ = frame.shape
 
     # Return the template with both camera's dimensions
-    return render_template("project-page.html", width1=width1, height1=height1, width2=width2, height2=height2)
+    return render_template("index.html", width1=width1, height1=height1, width2=width2, height2=height2)
+
+
+
+
 
 @app.route('/assets/<path:path>')
 def send_asset(path):
