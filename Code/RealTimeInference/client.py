@@ -3,7 +3,7 @@ import socket
 import numpy as np
 
 # Define the IP address and port of the UDP sender
-UDP_IP:str = '10.88.148.150'
+UDP_IP:str = ''
 UDP_PORT:int = 6969
 
 # Create a UDP socket
