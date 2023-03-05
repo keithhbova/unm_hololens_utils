@@ -5,14 +5,14 @@ import socket
 cap = cv2.VideoCapture(0)
 
 # Define the IP address and port of the UDP receiver
-UDP_IP:str = '10.88.148.150'
+UDP_IP:str = '192.168.42.15'
 UDP_PORT:int = 6969
 
 # Create a UDP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # Define the maximum packet size
-MAX_PACKET_SIZE = 1024
+MAX_PACKET_SIZE = 2048
 
 while cap.isOpened():
     # Capture frame-by-frame
